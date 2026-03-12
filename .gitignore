@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.DS_Store
+archive/
+option-a.html
+option-b.html
+option-c.html

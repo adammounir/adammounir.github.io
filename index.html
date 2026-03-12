@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Mounir — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #f8f9fc;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f3f8;
+            --text: #1a1a2e;
+            --text-muted: #6b7280;
+            --accent: #008000;
+            --accent-2: #00a300;
+            --accent-light: rgba(0, 128, 0, 0.08);
+            --accent-border: rgba(0, 128, 0, 0.18);
+            --gradient: linear-gradient(135deg, #008000, #00a300);
+            --border: #e5e7eb;
+            --border-hover: #c7ccd6;
+            --shadow: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-hover: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ====== CODE BACKGROUND PATTERN ====== */
+        .code-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .code-symbol {
+            position: absolute;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(0, 128, 0, 0.06);
+            font-weight: 500;
+            user-select: none;
+            line-height: 1;
+        }
+
+        /* ====== NAVIGATION ====== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(16px);
+            background: rgba(248, 249, 252, 0.7);
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 0.2px;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* ====== CONTENT WRAPPER ====== */
+        .content { position: relative; z-index: 1; }
+
+        /* ====== SECTIONS ====== */
+        section { max-width: 900px; margin: 0 auto; padding: 6rem 2rem; }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* ====== HERO ====== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 5rem;
+        }
+
+        .hero-greeting {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.6rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .hero-name {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            letter-spacing: -2px;
+            color: var(--text);
+        }
+
+        .hero-name .accent {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn {
+            padding: 0.7rem 1.6rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.88rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 128, 0, 0.2);
+        }
+
+        .hero-socials {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .hero-socials a {
+            color: var(--text);
+            font-size: 1.25rem;
+            transition: all 0.3s;
+            opacity: 0.6;
+        }
+
+        .hero-socials a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        /* ====== ABOUT ====== */
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text {
+            font-size: 1.02rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .skills-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.4rem 1rem;
+            background: var(--accent-light);
+            border: 1px solid var(--accent-border);
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(59, 91, 219, 0.12);
+            transform: translateY(-2px);
+        }
+
+        /* ====== PROJETS ====== */
+        .projects-grid { display: flex; flex-direction: column; gap: 1rem; }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+
+        .project-card:hover::before { transform: scaleX(1); }
+
+        .project-card:hover {
+            background: var(--bg-card);
+            transform: translateY(-4px);
+            border-color: var(--accent-border);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            min-width: 30px;
+        }
+
+        .project-title {
+            font-size: 1.12rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-title .arrow {
+            opacity: 0;
+            transition: all 0.3s;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .project-card:hover .project-title .arrow {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-left: 2.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-left: 2.8rem;
+        }
+
+        .project-tag {
+            padding: 0.2rem 0.65rem;
+            background: rgba(0, 128, 0, 0.06);
+            border: 1px solid rgba(0, 128, 0, 0.14);
+            border-radius: 6px;
+            font-size: 0.73rem;
+            color: #007000;
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ====== EXPERIENCE ====== */
+        .timeline { position: relative; padding-left: 2rem; }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), var(--border));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 3rem;
+        }
+
+        .timeline-item:last-child { padding-bottom: 0; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--bg);
+            transform: translateX(-5px);
+            box-shadow: 0 0 0 3px var(--accent-light);
+        }
+
+        .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-title {
+            font-size: 1.12rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-company {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .timeline-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* ====== EDUCATION ====== */
+        .education-grid { display: flex; flex-direction: column; gap: 1rem; }
+
+        .edu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .edu-card:hover {
+            border-color: var(--accent-border);
+            transform: translateX(8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .edu-degree {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-school {
+            font-size: 0.92rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .edu-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            white-space: nowrap;
+            padding: 0.3rem 0.8rem;
+            background: var(--accent-light);
+            border-radius: 6px;
+        }
+
+        /* ====== FOOTER ====== */
+        footer {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links { display: flex; gap: 1.2rem; }
+
+        .footer-links a {
+            color: var(--text);
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            opacity: 0.5;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 768px) {
+            nav { padding: 0.8rem 1rem; }
+            .nav-links { gap: 1.5rem; }
+            .nav-links a { font-size: 0.82rem; }
+            section { padding: 4rem 1.5rem; }
+            .edu-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            footer { flex-direction: column; gap: 1rem; text-align: center; }
+            #hero { padding-top: 6rem; }
+            .hero-name { letter-spacing: -1px; }
+        }
+
+        /* ====== ANIMATIONS ====== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Code symbols background -->
+    <div class="code-bg" id="codeBg"></div>
+
+    <div class="content">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </nav>
+
+        <section id="hero">
+            <p class="hero-greeting">Hello! 👋</p>
+            <h1 class="hero-name">I'm <span class="accent">Adam MOUNIR</span></h1>
+            <p class="hero-subtitle">Research Student majoring in Data & Artificial Intelligence at EFREI Paris. Passionate about AI research, deep learning and building intelligent systems.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download my resume</a>
+            </div>
+            <div class="hero-socials">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:adam.mounir@efrei.net" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+
+        <section id="about" class="fade-in">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-card">
+                <p class="about-text">
+                    Research student at EFREI Paris Panthéon-Assas, specializing in Data & Artificial Intelligence.
+                    My research focuses on deep learning generalization, explainable AI, and bio-inspired neural architectures.
+                    I have hands-on experience in LLM fine-tuning, NLP pipelines, and causal reasoning — with internships at Thales and Société Générale.
+                </p>
+                <p class="skills-label">// languages</p>
+                <div class="skills" style="margin-bottom: 1rem;">
+                    <span class="skill-tag">French (native)</span>
+                    <span class="skill-tag">English (C1)</span>
+                    <span class="skill-tag">Spanish (B2)</span>
+                </div>
+                <p class="skills-label">// technical skills</p>
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Java / C# / Scala</span>
+                    <span class="skill-tag">C / Assembly 68000</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">HTML / CSS / JavaScript</span>
+                    <span class="skill-tag">SQL / Oracle</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">LLM Fine-tuning</span>
+                    <span class="skill-tag">RAG</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="fade-in">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <a href="#" class="project-card">
+                    <div class="project-header">
+                        <span class="project-number">01</span>
+                        <h3 class="project-title">🧠 Double Descent & Loss Landscapes <span class="arrow">→</span></h3>
+                    </div>
+                    <p class="project-desc">Investigating the generalization paradox of over-parameterized DNNs. Analyzing SGD implicit bias, minima flatness, and the Double Descent phenomenon using Sharpness-Aware Minimization and 2D loss surface visualization.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">PyTorch</span>
+                        <span class="project-tag">Deep Learning</span>
+                        <span class="project-tag">MVA ENS Paris-Saclay</span>
+                    </div>
+                </a>
+                <a href="#" class="project-card">
+                    <div class="project-header">
+                        <span class="project-number">02</span>
+                        <h3 class="project-title">🔬 Neuro-AI for Complementary Learning Systems <span class="arrow">→</span></h3>
+                    </div>
+                    <p class="project-desc">Tackling catastrophic forgetting via bio-inspired architectures optimizing the stability-plasticity trade-off. Built a Wake-Sleep/DDPM framework for NREM/REM latent generative replay, surpassing VAE/GAN inference speed & retention.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">PyTorch</span>
+                        <span class="project-tag">Avalanche</span>
+                        <span class="project-tag">Continual Learning</span>
+                        <span class="project-tag">DDPM</span>
+                    </div>
+                </a>
+                <a href="#" class="project-card">
+                    <div class="project-header">
+                        <span class="project-number">03</span>
+                        <h3 class="project-title">💡 EXPLAiN — XAI for Patent Classification <span class="arrow">→</span></h3>
+                    </div>
+                    <p class="project-desc">Built explainable AI models (Transformers/Shallow) for patent classification, fine-tuning BERT and FastText. Integrated Shapley Values for interpretability and deployed a web interface to visualize feature contributions. Achieved 75% F1-score.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">BERT</span>
+                        <span class="project-tag">FastText</span>
+                        <span class="project-tag">Shapley Values</span>
+                        <span class="project-tag">XAI</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="experience" class="fade-in">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">Nov 2024 — Apr 2025</span>
+                    <h3 class="timeline-title">AI Research Intern</h3>
+                    <p class="timeline-company">Thales — Paris</p>
+                    <p class="timeline-desc">Researching global-scale Root Cause Analysis by distilling multi-step reasoning from LLMs into specialized architectures. Designed a supervised alignment pipeline mapping expert causal trajectories from logs into internalized reasoning schemas. Distilled causal traces via GPT-4o to fine-tune a SFT pipeline using Llama 3.1 (QLoRA). Achieved 0.64 F1-score in RCA prediction.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Oct 2025 — Aug 2026</span>
+                    <h3 class="timeline-title">AI Engineer — Apprentice</h3>
+                    <p class="timeline-company">Société Générale — Paris</p>
+                    <p class="timeline-desc">Detecting semantic discrepancies between unstructured document disclosures and structured multi-provider data. Engineering a Zero-shot NER pipeline using Claude 3.5 Sonnet (RAG) and Directed Graphs for topological impact analysis. Automating cross-source data alignment and causal influence tracing within hierarchical scoring models.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="fade-in">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="edu-card">
+                    <div>
+                        <div class="edu-degree">MEng. in Data & Artificial Intelligence</div>
+                        <div class="edu-school">EFREI Paris Panthéon-Assas — Distinction: 17/20</div>
+                    </div>
+                    <span class="edu-date">2021 – 2026</span>
+                </div>
+                <div class="edu-card">
+                    <div>
+                        <div class="edu-degree">Exchange — MEng. in Computer Science</div>
+                        <div class="edu-school">University of California, Irvine — GPA: 4.0 / 4.0</div>
+                    </div>
+                    <span class="edu-date">2023 – 2024</span>
+                </div>
+                <div class="edu-card">
+                    <div>
+                        <div class="edu-degree">Advanced Deep Learning — Guest Auditor</div>
+                        <div class="edu-school">ENS Paris-Saclay (MVA)</div>
+                    </div>
+                    <span class="edu-date">2026</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p class="footer-text">© 2026 Adam MOUNIR. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:adam.mounir@efrei.net"><i class="fas fa-envelope"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ====== Generate code symbols background ======
+        const codeBg = document.getElementById('codeBg');
+        const symbols = [
+            '</', '/>', '{ }', '( )', '[ ]', '//', '&&', '||',
+            '=>', '===', '!=', '++', '--', '/**/', '< >',
+            'fn', 'if', '{ }', '( )', ';', '::', '->',
+            '< />', '{ }', '( )', '&&', '||', '==',
+            '/*', '*/', '...', '??', '<=', '>=', '#',
+        ];
+
+        const totalSymbols = 50;
+
+        // Create a grid-based placement to distribute symbols evenly
+        const cols = 10;
+        const rows = Math.ceil(totalSymbols / cols);
+
+        for (let i = 0; i < totalSymbols; i++) {
+            const span = document.createElement('span');
+            span.className = 'code-symbol';
+            span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+            // Grid-based position with random offset for organic feel
+            const col = i % cols;
+            const row = Math.floor(i / cols);
+            const baseX = (col / cols) * 100;
+            const baseY = (row / rows) * 100;
+            const offsetX = (Math.random() - 0.5) * (100 / cols) * 0.8;
+            const offsetY = (Math.random() - 0.5) * (100 / rows) * 0.8;
+
+            span.style.left = `${Math.max(1, Math.min(95, baseX + offsetX))}%`;
+            span.style.top = `${Math.max(1, Math.min(98, baseY + offsetY))}%`;
+
+            // Varied sizes
+            const sizes = [14, 16, 18, 20, 24, 28];
+            span.style.fontSize = sizes[Math.floor(Math.random() * sizes.length)] + 'px';
+
+            // Slight rotation for variety
+            const rotation = (Math.random() - 0.5) * 30;
+            span.style.transform = `rotate(${rotation}deg)`;
+
+            codeBg.appendChild(span);
+        }
+
+        // ====== Intersection Observer for fade-in ======
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
