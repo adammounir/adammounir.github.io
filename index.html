@@ -512,6 +512,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#education">Education</a></li>
             </ul>
         </nav>
@@ -519,7 +520,7 @@
         <section id="hero">
             <p class="hero-greeting">Hello! 👋</p>
             <h1 class="hero-name">I'm <span class="accent">Adam MOUNIR</span></h1>
-            <p class="hero-subtitle">Research Student majoring in Data & Artificial Intelligence at EFREI Paris. Passionate about AI research, deep learning and building intelligent systems.</p>
+            <p class="hero-subtitle">AI Research Student majoring in Data & Artificial Intelligence at EFREI Paris. Currently researching deep-learning architectures for EEG decoding at Inria-TAU (Université Paris-Saclay), with a focus on neural decoding, bio-inspired learning and LLM reasoning.</p>
             <div class="hero-buttons">
                 <a href="CV%20Adam-EN.pdf" class="btn btn-primary" target="_blank"><i class="fas fa-download"></i> Download my resume</a>
             </div>
@@ -534,9 +535,10 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-card">
                 <p class="about-text">
-                    Research student at EFREI Paris Panthéon-Assas, specializing in Data & Artificial Intelligence.
-                    My research focuses on deep learning generalization, explainable AI, and bio-inspired neural architectures.
-                    I have hands-on experience in LLM fine-tuning, NLP pipelines, and causal reasoning — with internships at Thales and Société Générale.
+                    AI Research Student at EFREI Paris Panthéon-Assas, specializing in Data & Artificial Intelligence.
+                    I currently research end-to-end EEG decoding architectures at Inria-TAU (Université Paris-Saclay), where I co-organize the NeurIPS 2026 EEG decoding competition.
+                    My interests span neural decoding, bio-inspired learning and the stability–plasticity trade-off, LLM fine-tuning, NLP pipelines and causal reasoning —
+                    with hands-on experience from internships at Inria, Thales and Société Générale.
                 </p>
                 <p class="skills-label">// languages</p>
                 <div class="skills" style="margin-bottom: 1rem;">
@@ -559,48 +561,43 @@
                     <span class="skill-tag">LLM Fine-tuning</span>
                     <span class="skill-tag">RAG</span>
                 </div>
+                <p class="skills-label" style="margin-top: 1.5rem;">// interests</p>
+                <div class="skills">
+                    <span class="skill-tag">Running</span>
+                    <span class="skill-tag">Swimming</span>
+                    <span class="skill-tag">Reading</span>
+                    <span class="skill-tag">Piano</span>
+                </div>
             </div>
         </section>
 
         <section id="projects" class="fade-in">
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
-                <a href="#" class="project-card">
+                <a href="https://github.com/braindecode/braindecode" target="_blank" class="project-card">
                     <div class="project-header">
                         <span class="project-number">01</span>
-                        <h3 class="project-title">🧠 Double Descent & Loss Landscapes <span class="arrow">→</span></h3>
+                        <h3 class="project-title">🧠 Braindecode — Open-Source Contribution <span class="arrow">→</span></h3>
                     </div>
-                    <p class="project-desc">Investigating the generalization paradox of over-parameterized DNNs. Analyzing SGD implicit bias, minima flatness, and the Double Descent phenomenon using Sharpness-Aware Minimization and 2D loss surface visualization.</p>
+                    <p class="project-desc">Maintaining and extending the reference PyTorch/skorch library for end-to-end neural time-series decoding. Implementing transformer, graph-neural-network and Riemannian architectures for EEG/MEG signal decoding, with reproducible benchmarking pipelines over open neurophysiology datasets (MOABB integration) — used across academic and clinical labs.</p>
                     <div class="project-tags">
                         <span class="project-tag">PyTorch</span>
-                        <span class="project-tag">Deep Learning</span>
-                        <span class="project-tag">MVA ENS Paris-Saclay</span>
+                        <span class="project-tag">skorch</span>
+                        <span class="project-tag">EEG / MEG</span>
+                        <span class="project-tag">MOABB</span>
                     </div>
                 </a>
                 <a href="#" class="project-card">
                     <div class="project-header">
                         <span class="project-number">02</span>
-                        <h3 class="project-title">🔬 Neuro-AI for Complementary Learning Systems <span class="arrow">→</span></h3>
+                        <h3 class="project-title">🔬 Nullflow — Neuro-AI for Complementary Learning Systems <span class="arrow">→</span></h3>
                     </div>
-                    <p class="project-desc">Tackling catastrophic forgetting via bio-inspired architectures optimizing the stability-plasticity trade-off. Built a Wake-Sleep/DDPM framework for NREM/REM latent generative replay, surpassing VAE/GAN inference speed & retention.</p>
+                    <p class="project-desc">Tackling catastrophic forgetting in deep neural networks during non-stationary sequential data streams. Designed bio-inspired architectures optimizing the stability–plasticity trade-off via CLS Theory & Null-Space Projection, with a Wake-Sleep / Flow Matching framework in PyTorch for NREM/REM latent generative replay (~2.1M params). Outperformed 8 continual-learning baselines by +18.8pp via 6-step ODE latent replay.</p>
                     <div class="project-tags">
                         <span class="project-tag">PyTorch</span>
-                        <span class="project-tag">Avalanche</span>
+                        <span class="project-tag">Flow Matching</span>
                         <span class="project-tag">Continual Learning</span>
-                        <span class="project-tag">DDPM</span>
-                    </div>
-                </a>
-                <a href="#" class="project-card">
-                    <div class="project-header">
-                        <span class="project-number">03</span>
-                        <h3 class="project-title">💡 EXPLAiN — XAI for Patent Classification <span class="arrow">→</span></h3>
-                    </div>
-                    <p class="project-desc">Built explainable AI models (Transformers/Shallow) for patent classification, fine-tuning BERT and FastText. Integrated Shapley Values for interpretability and deployed a web interface to visualize feature contributions. Achieved 75% F1-score.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">BERT</span>
-                        <span class="project-tag">FastText</span>
-                        <span class="project-tag">Shapley Values</span>
-                        <span class="project-tag">XAI</span>
+                        <span class="project-tag">CLS Theory</span>
                     </div>
                 </a>
             </div>
@@ -610,16 +607,52 @@
             <h2 class="section-title">Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
+                    <span class="timeline-date">Apr 2026 — Sep 2026</span>
+                    <h3 class="timeline-title">AI Research Intern</h3>
+                    <p class="timeline-company">Inria — TAU (Université Paris-Saclay) — Paris</p>
+                    <p class="timeline-desc">Researching deep-learning architectures for end-to-end electroencephalography (EEG) decoding for the open-source library Braindecode. Designing transformer, graph-neural-network, convolutional and Riemannian models for neural decoding on open EEG datasets. Co-organizing the NeurIPS 2026 EEG decoding competition (Meta, top academic labs) and building its benchmark infrastructure. Supervised by Sylvain Chevallier & Guillaume Charpiat (Inria TAU).</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Oct 2025 — Apr 2026</span>
+                    <h3 class="timeline-title">AI Engineer — Apprentice</h3>
+                    <p class="timeline-company">Société Générale — Paris</p>
+                    <p class="timeline-desc">Detecting semantic discrepancies between unstructured document disclosures and structured multi-provider data. Engineering a Zero-shot NER pipeline using Claude 3.5 Sonnet (RAG) and Directed Graphs for topological impact analysis. Automating cross-source data alignment and causal influence tracing within hierarchical scoring models.</p>
+                </div>
+                <div class="timeline-item">
                     <span class="timeline-date">Nov 2024 — Apr 2025</span>
                     <h3 class="timeline-title">AI Research Intern</h3>
                     <p class="timeline-company">Thales — Paris</p>
                     <p class="timeline-desc">Researching global-scale Root Cause Analysis by distilling multi-step reasoning from LLMs into specialized architectures. Designed a supervised alignment pipeline mapping expert causal trajectories from logs into internalized reasoning schemas. Distilled causal traces via GPT-4o to fine-tune a SFT pipeline using Llama 3.1 (QLoRA). Achieved 0.64 F1-score in RCA prediction.</p>
                 </div>
-                <div class="timeline-item">
-                    <span class="timeline-date">Oct 2025 — Aug 2026</span>
-                    <h3 class="timeline-title">AI Engineer — Apprentice</h3>
-                    <p class="timeline-company">Société Générale — Paris</p>
-                    <p class="timeline-desc">Detecting semantic discrepancies between unstructured document disclosures and structured multi-provider data. Engineering a Zero-shot NER pipeline using Claude 3.5 Sonnet (RAG) and Directed Graphs for topological impact analysis. Automating cross-source data alignment and causal influence tracing within hierarchical scoring models.</p>
+            </div>
+        </section>
+
+        <section id="achievements" class="fade-in">
+            <h2 class="section-title">Achievements</h2>
+            <div class="projects-grid">
+                <div class="project-card" style="cursor: default;">
+                    <div class="project-header">
+                        <span class="project-number">🏆</span>
+                        <h3 class="project-title">Google DeepMind × {Tech : Europe} — Big Berlin Hack</h3>
+                    </div>
+                    <p class="project-desc">Selected on the Researcher track among 300+ builders to develop a neuroscience-oriented AI application using frontier multimodal models, competing for €50k+ in prizes.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">AI Hackathon</span>
+                        <span class="project-tag">Berlin, DE</span>
+                        <span class="project-tag">Apr 2026</span>
+                    </div>
+                </div>
+                <div class="project-card" style="cursor: default;">
+                    <div class="project-header">
+                        <span class="project-number">🚀</span>
+                        <h3 class="project-title">Microsoft × Finelog-Biseum — Azure AI Platforms</h3>
+                    </div>
+                    <p class="project-desc">Built a context-aware HR chatbot on Azure (FastAPI, CosmosDB, Azure OpenAI) with RAG over French labor-law documents and role-conditioned response generation via BFS traversal of organizational hierarchies.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">AI Hackathon</span>
+                        <span class="project-tag">Paris, FR</span>
+                        <span class="project-tag">Jun 2025</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -643,8 +676,8 @@
                 </div>
                 <div class="edu-card">
                     <div>
-                        <div class="edu-degree">Advanced Deep Learning — Guest Auditor</div>
-                        <div class="edu-school">ENS Paris-Saclay (MVA)</div>
+                        <div class="edu-degree">MVA — Deep Learning in Practice (G. Charpiat) — Guest Auditor</div>
+                        <div class="edu-school">ENS Paris-Saclay</div>
                     </div>
                     <span class="edu-date">2026</span>
                 </div>
