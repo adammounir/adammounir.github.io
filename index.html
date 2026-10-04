@@ -192,6 +192,99 @@
             color: var(--accent);
         }
 
+        /* ====== PUBLICATIONS ====== */
+        .project-card.pub-card {
+            cursor: default;
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+            gap: 1.75rem;
+            align-items: start;
+        }
+
+        .pub-figure {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .pub-figure:hover {
+            border-color: var(--accent-border);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .pub-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            cursor: zoom-in;
+        }
+
+        .pub-body .project-desc,
+        .pub-body .project-tags { margin-left: 0; }
+
+        .pub-authors {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0.5rem 0 0.75rem;
+        }
+
+        .pub-title { font-size: 1.05rem; line-height: 1.4; }
+
+        .pub-authors strong { color: var(--text); }
+
+        .pub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .pub-links a,
+        .pub-bib {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border: 1px solid var(--accent-border);
+            border-radius: 8px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .pub-links a:hover,
+        .pub-bib:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .pub-abstract {
+            margin-top: 1rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .pub-abstract summary {
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--accent);
+        }
+
+        .pub-abstract p { margin-top: 0.6rem; line-height: 1.7; }
+
+        @media (max-width: 768px) {
+            .project-card.pub-card { grid-template-columns: 1fr; }
+        }
+
         /* ====== PROJETS ====== */
         .projects-grid { display: flex; flex-direction: column; gap: 1rem; }
 
@@ -486,20 +579,39 @@
         <section id="publications" class="fade-in">
             <h2 class="section-title">Publications</h2>
             <div class="projects-grid">
-                <a href="https://arxiv.org/abs/2609.33880" target="_blank" class="project-card">
-                    <div class="project-header">
-                        <span class="project-number">📄</span>
-                        <h3 class="project-title">Neuron-Level Architecture Growth: A Controlled Evaluation for EEG Time-Series Decoding <span class="arrow">→</span></h3>
+                <div class="project-card pub-card">
+                    <a class="pub-figure" href="images/neuron-growth-eeg.png" target="_blank" title="Open figure at full size">
+                        <img src="images/neuron-growth-eeg.png" alt="Summary figure: growth adds neurons where the current architecture cannot follow the loss gradient; growing ShallowFBCSPNet beats its reference with 0.57× parameters; per-dataset results across 12 motor-imagery datasets" loading="lazy">
+                    </a>
+                    <div class="pub-body">
+                        <h3 class="project-title pub-title">Neuron-Level Architecture Growth: A Controlled Evaluation for EEG Time-Series Decoding</h3>
+                        <p class="pub-authors"><strong>A. Mounir</strong>, S. Douka, A. Caillet, B. Aristimunha, S. Chevallier — IEEE ICASSP 2027 (under review)</p>
+                        <p class="project-desc">Networks widen during training instead of using a fixed width, reaching +2.9 pp over ShallowFBCSPNet at 0.57× parameters; the refusal rate of growth predicts when it helps.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">ICASSP 2027</span>
+                            <span class="project-tag">Under review</span>
+                            <span class="project-tag">EEG Decoding</span>
+                            <span class="project-tag">Sep 2026</span>
+                        </div>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2609.33880" target="_blank"><i class="fas fa-file-lines"></i> arXiv</a>
+                            <a href="https://arxiv.org/pdf/2609.33880" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <button type="button" class="pub-bib" data-bibtex="@misc{Mounir2026growth,
+  title = {Neuron-Level Architecture Growth: A Controlled Evaluation for EEG Time-Series Decoding},
+  author = {Mounir, A. and Douka, S. and Caillet, A. H. and Aristimunha, B. and Chevallier, S.},
+  year = {2026},
+  eprint = {2609.33880},
+  archivePrefix = {arXiv},
+  url = {https://arxiv.org/abs/2609.33880},
+  note = {Submitted to ICASSP 2027}
+}"><i class="fas fa-quote-right"></i> <span>BibTeX</span></button>
+                        </div>
+                        <details class="pub-abstract">
+                            <summary>Abstract</summary>
+                            <p>Convolutional EEG decoders are trained at a fixed width, usually set by their authors on other data. Growing methods add neurons during training where the loss could decrease the most, but whether they improve compared to a reference width is untested on EEG. Here, we grow three convolutional backbones on 12 motor-imagery datasets under three protocols and compare each with its reference model per subject. The growing ShallowFBCSPNet scores 2.9 points above its reference model with only half the parameters (0.57x), SCCNet changes by at most 1.2 points. Deep4Net growing models show decreased accuracy, but they require adaptation that prevent to compare faithfully the results. These differences follow the selection step, which keeps a candidate neuron relying on a dynamic threshold from singular values decomposition. Overall, these results suggest that growth helps when its criterion can rank the candidate neurons, and that the rate of skipped neuron addition tells where a decoder can be grown small from scratch.</p>
+                        </details>
                     </div>
-                    <p class="project-desc"><strong>A. Mounir</strong>, S. Douka, A. Caillet, B. Aristimunha, S. Chevallier — IEEE ICASSP 2027 (under review), arXiv:2609.33880. Neuron-level growth for EEG time-series decoders: networks widen during training instead of using a fixed width, reaching +2.9 pp over ShallowFBCSPNet at 0.57× parameters; the refusal rate of growth predicts when it helps.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">ICASSP 2027</span>
-                        <span class="project-tag">Under review</span>
-                        <span class="project-tag">arXiv</span>
-                        <span class="project-tag">EEG Decoding</span>
-                        <span class="project-tag">Sep 2026</span>
-                    </div>
-                </a>
+                </div>
             </div>
             <div class="hero-buttons" style="margin-top: 1.5rem;">
                 <a href="https://scholar.google.com/citations?user=qNRuoZ8AAAAJ" class="btn btn-primary" target="_blank"><i class="fas fa-graduation-cap"></i> All publications on Google Scholar</a>
@@ -664,6 +776,20 @@
 
             codeBg.appendChild(span);
         }
+
+        // ====== Copy BibTeX ======
+        document.querySelectorAll('.pub-bib').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const label = btn.querySelector('span');
+                try {
+                    await navigator.clipboard.writeText(btn.dataset.bibtex);
+                    label.textContent = 'Copied!';
+                } catch {
+                    label.textContent = 'Copy failed';
+                }
+                setTimeout(() => { label.textContent = 'BibTeX'; }, 1500);
+            });
+        });
 
         // ====== Intersection Observer for fade-in ======
         const observer = new IntersectionObserver((entries) => {
