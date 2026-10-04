@@ -49,7 +49,7 @@
         .code-symbol {
             position: absolute;
             font-family: 'JetBrains Mono', monospace;
-            color: rgba(0, 128, 0, 0.06);
+            color: rgba(0, 128, 0, 0.072);
             font-weight: 500;
             user-select: none;
             line-height: 1;
@@ -708,9 +708,17 @@
             'fn', 'if', '{ }', '( )', ';', '::', '->',
             '< />', '{ }', '( )', '&&', '||', '==',
             '/*', '*/', '...', '??', '<=', '>=', '#',
+            '∇', 'θ', 'Σ', 'λ', '∂L/∂θ', 'σ(x)', 'ReLU', 'softmax', 'argmax', 'p(y|x)',
         ];
 
-        const totalSymbols = 50;
+        // AI-themed Font Awesome icons mixed in with the code symbols
+        const icons = [
+            'fa-brain', 'fa-robot', 'fa-microchip', 'fa-network-wired',
+            'fa-diagram-project', 'fa-wave-square', 'fa-wand-magic-sparkles',
+            'fa-atom', 'fa-chart-line', 'fa-database', 'fa-terminal', 'fa-gears',
+        ];
+
+        const totalSymbols = 60;
 
         // Create a grid-based placement to distribute symbols evenly
         const cols = 10;
@@ -719,7 +727,13 @@
         for (let i = 0; i < totalSymbols; i++) {
             const span = document.createElement('span');
             span.className = 'code-symbol';
-            span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            if (Math.random() < 0.3) {
+                const icon = document.createElement('i');
+                icon.className = 'fas ' + icons[Math.floor(Math.random() * icons.length)];
+                span.appendChild(icon);
+            } else {
+                span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            }
 
             // Grid-based position with random offset for organic feel
             const col = i % cols;
