@@ -192,54 +192,6 @@
             color: var(--accent);
         }
 
-        /* ====== ABOUT ====== */
-        .about-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-        }
-
-        .about-text {
-            font-size: 1.02rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .skills-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            padding: 0.4rem 1rem;
-            background: var(--accent-light);
-            border: 1px solid var(--accent-border);
-            border-radius: 8px;
-            font-size: 0.82rem;
-            color: var(--accent);
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: rgba(59, 91, 219, 0.12);
-            transform: translateY(-2px);
-        }
-
         /* ====== PROJETS ====== */
         .projects-grid { display: flex; flex-direction: column; gap: 1rem; }
 
@@ -509,7 +461,6 @@
     <div class="content">
         <nav>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -529,49 +480,6 @@
                 <a href="https://www.linkedin.com/in/adam-mounir-63944223a/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://scholar.google.com/citations?user=qNRuoZ8AAAAJ" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
                 <a href="mailto:adam.mounir@student-cs.fr" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-        </section>
-
-        <section id="about" class="fade-in">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-card">
-                <p class="about-text">
-                    AI Research Student in the MSc. Artificial Intelligence at CentraleSupélec — Université Paris-Saclay, following MVA electives at ENS Paris-Saclay,
-                    after a Diplôme d'Ingénieur in Data & Artificial Intelligence at EFREI Paris Panthéon-Assas.
-                    I research end-to-end EEG decoding architectures at Inria-TAU, where I co-organize the NeurIPS 2026 EEG decoding competition,
-                    and first-authored a paper on neuron-level architecture growth submitted to IEEE ICASSP 2027.
-                    My interests span neural decoding, bio-inspired learning and the stability–plasticity trade-off, LLM fine-tuning, NLP pipelines and causal reasoning —
-                    with hands-on experience from internships at Inria, Thales and Société Générale.
-                    I am looking for a 5–6 month research internship starting April 2027.
-                </p>
-                <p class="skills-label">// languages</p>
-                <div class="skills" style="margin-bottom: 1rem;">
-                    <span class="skill-tag">French (native)</span>
-                    <span class="skill-tag">English (C1)</span>
-                    <span class="skill-tag">Spanish (B2)</span>
-                </div>
-                <p class="skills-label">// technical skills</p>
-                <div class="skills">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">PyTorch</span>
-                    <span class="skill-tag">Java / C# / Scala</span>
-                    <span class="skill-tag">C / Assembly 68000</span>
-                    <span class="skill-tag">MATLAB</span>
-                    <span class="skill-tag">HTML / CSS / JavaScript</span>
-                    <span class="skill-tag">SQL / Oracle</span>
-                    <span class="skill-tag">Machine Learning</span>
-                    <span class="skill-tag">Deep Learning</span>
-                    <span class="skill-tag">NLP</span>
-                    <span class="skill-tag">LLM Fine-tuning</span>
-                    <span class="skill-tag">RAG</span>
-                </div>
-                <p class="skills-label" style="margin-top: 1.5rem;">// interests</p>
-                <div class="skills">
-                    <span class="skill-tag">Running</span>
-                    <span class="skill-tag">Swimming</span>
-                    <span class="skill-tag">Reading</span>
-                    <span class="skill-tag">Piano</span>
-                </div>
             </div>
         </section>
 
