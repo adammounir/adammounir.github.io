@@ -764,8 +764,8 @@
                     </div>
                     <div class="oss-stats">
                         <div class="oss-stat"><b>5</b><span>models added</span></div>
-                        <div class="oss-stat"><b>21</b><span>bug fixes</span></div>
-                        <div class="oss-stat"><b>28</b><span>PRs landed</span></div>
+                        <div class="oss-stat"><b id="oss-fixes">21</b><span>bug fixes</span></div>
+                        <div class="oss-stat"><b id="oss-prs">27</b><span>PRs landed</span></div>
                     </div>
                 </div>
                 <p class="oss-intro">I port published neural-decoding models, mostly intracranial (sEEG/iEEG) foundation models, into Braindecode as native, tested and documented modules, so they can be benchmarked side by side on open datasets.</p>
@@ -954,6 +954,24 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // ====== Live Braindecode PR counts (static values stay as fallback) ======
+        (async () => {
+            const q = 'repo:braindecode/braindecode author:adammounir is:pr is:merged';
+            try {
+                let titles = [], total = 0;
+                for (let page = 1; page <= 10; page++) {
+                    const res = await fetch(`https://api.github.com/search/issues?q=${encodeURIComponent(q)}&per_page=100&page=${page}`);
+                    if (!res.ok) return;
+                    const data = await res.json();
+                    total = data.total_count;
+                    titles.push(...data.items.map(pr => pr.title));
+                    if (titles.length >= total || !data.items.length) break;
+                }
+                document.getElementById('oss-prs').textContent = total;
+                document.getElementById('oss-fixes').textContent = titles.filter(t => /\bfix\b/i.test(t)).length;
+            } catch (e) { /* keep static counts */ }
+        })();
     </script>
 </body>
 </html>
