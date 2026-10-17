@@ -427,8 +427,8 @@
             color: var(--text-muted);
         }
 
-        .oss-maint a { color: var(--accent); text-decoration: none; }
-        .oss-maint a:hover { text-decoration: underline; }
+        .oss-maint a, .timeline-desc a, .oss-name a { color: var(--accent); text-decoration: none; }
+        .oss-maint a:hover, .timeline-desc a:hover, .oss-name a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
             .oss-models { grid-template-columns: 1fr; }
@@ -746,6 +746,9 @@
                             <span class="project-tag">EEG / EMG</span>
                             <span class="project-tag">Benchmark</span>
                         </div>
+                        <div class="pub-links">
+                            <a href="https://neural-interfaces26.github.io/" target="_blank"><i class="fas fa-globe"></i> Competition website</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -759,7 +762,7 @@
             <div class="project-card oss-card">
                 <div class="oss-head">
                     <div>
-                        <h3 class="oss-name"><i class="fas fa-brain"></i> Braindecode</h3>
+                        <h3 class="oss-name"><i class="fas fa-brain"></i> <a href="https://github.com/braindecode/braindecode" target="_blank">Braindecode</a></h3>
                         <p class="oss-role">Contributor · PyTorch library for deep learning on EEG, MEG &amp; iEEG</p>
                     </div>
                     <div class="oss-stats">
@@ -810,7 +813,7 @@
                     <span class="timeline-date">May 2026 — Nov 2026</span>
                     <h3 class="timeline-title">AI Research Intern</h3>
                     <p class="timeline-company">Inria — TAU (Université Paris-Saclay) — Paris</p>
-                    <p class="timeline-desc">Researching deep-learning architectures for end-to-end electroencephalography (EEG) decoding in the open-source library Braindecode, and Growing Neural Networks during training in EEGrow. Designing transformer, graph-neural-network, convolutional and Riemannian models for neural decoding on open EEG datasets. Porting in-training architecture growth (gromo) to EEG decoding — conv-junction width auto-sized during training rather than tuned. Co-organizing the NeurIPS 2026 EEG decoding competition (Meta, top academic labs) and building its benchmark infrastructure. Supervised by Sylvain Chevallier & Guillaume Charpiat (Inria TAU).</p>
+                    <p class="timeline-desc">Researching deep-learning architectures for end-to-end electroencephalography (EEG) decoding in the open-source library <a href="https://github.com/braindecode/braindecode" target="_blank">Braindecode</a>, and Growing Neural Networks during training in <a href="https://github.com/adammounir/EEGrow" target="_blank">EEGrow</a>. Designing transformer, graph-neural-network, convolutional and Riemannian models for neural decoding on open EEG datasets. Porting in-training architecture growth (<a href="https://github.com/growingnet/gromo" target="_blank">gromo</a>) to EEG decoding — conv-junction width auto-sized during training rather than tuned. Co-organizing the <a href="https://neural-interfaces26.github.io/" target="_blank">NeurIPS 2026 EEG/EMG decoding competition</a> (Meta, top academic labs) and building its benchmark infrastructure. Supervised by Sylvain Chevallier & Guillaume Charpiat (Inria TAU).</p>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-date">Oct 2025 — Apr 2026</span>
