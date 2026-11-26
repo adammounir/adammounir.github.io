@@ -15,14 +15,14 @@
             --bg-card-hover: #f1f3f8;
             --text: #1a1a2e;
             --text-muted: #6b7280;
-            --accent: #1c4286;
-            --accent-2: #2d5aa8;
-            --accent-light: rgba(28, 66, 134, 0.08);
-            --accent-border: rgba(28, 66, 134, 0.18);
-            --gradient: linear-gradient(135deg, #1c4286, #2d5aa8);
-            --secondary: #d62828;
-            --secondary-light: rgba(214, 40, 40, 0.08);
-            --secondary-border: rgba(214, 40, 40, 0.2);
+            --accent: #008000;
+            --accent-2: #00a300;
+            --accent-light: rgba(0, 128, 0, 0.08);
+            --accent-border: rgba(0, 128, 0, 0.18);
+            --gradient: linear-gradient(135deg, #008000, #00a300);
+            --secondary: #475569;
+            --secondary-light: rgba(71, 85, 105, 0.08);
+            --secondary-border: rgba(71, 85, 105, 0.2);
             --border: #e5e7eb;
             --border-hover: #c7ccd6;
             --shadow: 0 1px 3px rgba(0,0,0,0.04);
@@ -52,7 +52,7 @@
         .code-symbol {
             position: absolute;
             font-family: 'JetBrains Mono', monospace;
-            color: rgba(28, 66, 134, 0.09);
+            color: rgba(71, 85, 105, 0.12);
             font-weight: 500;
             user-select: none;
             line-height: 1;
@@ -107,7 +107,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: var(--gradient);
+            background: var(--accent);
             border-radius: 2px;
         }
 
@@ -168,6 +168,7 @@
             color: var(--secondary);
             font-size: 0.8em;
             margin-right: 0.4rem;
+            opacity: 0.85;
         }
 
         .hero-role .accent { color: var(--accent); }
@@ -182,7 +183,6 @@
         .hero-subtitle {
             font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 520px;
             margin-bottom: 2.5rem;
             font-weight: 400;
             line-height: 1.7;
@@ -212,7 +212,7 @@
         .btn-primary:hover {
             background: var(--accent-2);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(28, 66, 134, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 128, 0, 0.2);
         }
 
         .hero-socials {
@@ -222,15 +222,15 @@
         }
 
         .hero-socials a {
-            color: var(--text);
+            color: var(--secondary);
             font-size: 1.25rem;
             transition: all 0.3s;
-            opacity: 0.6;
+            opacity: 0.8;
         }
 
         .hero-socials a:hover {
             opacity: 1;
-            color: var(--accent);
+            color: var(--secondary);
         }
 
         /* ====== PUBLICATIONS ====== */
@@ -315,7 +315,7 @@
             cursor: pointer;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.78rem;
-            color: var(--accent);
+            color: var(--secondary);
         }
 
         .pub-abstract p { margin-top: 0.6rem; line-height: 1.7; }
@@ -382,7 +382,7 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.78rem;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--secondary);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 0.75rem;
@@ -421,7 +421,7 @@
         .oss-pr {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
-            color: var(--accent);
+            color: var(--secondary);
             white-space: nowrap;
         }
 
@@ -516,11 +516,11 @@
 
         .project-tag {
             padding: 0.2rem 0.65rem;
-            background: rgba(28, 66, 134, 0.06);
-            border: 1px solid rgba(28, 66, 134, 0.14);
+            background: rgba(0, 128, 0, 0.06);
+            border: 1px solid rgba(0, 128, 0, 0.14);
             border-radius: 6px;
             font-size: 0.73rem;
-            color: #163569;
+            color: #007000;
             font-weight: 500;
             font-family: 'JetBrains Mono', monospace;
         }
@@ -535,7 +535,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, var(--accent), var(--secondary), var(--border));
+            background: var(--border-hover);
             border-radius: 2px;
         }
 
@@ -554,10 +554,10 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: var(--accent);
+            background: var(--border-hover);
             border: 3px solid var(--bg);
             transform: translateX(-5px);
-            box-shadow: 0 0 0 3px var(--accent-light);
+            box-shadow: 0 0 0 3px rgba(199, 204, 214, 0.3);
         }
 
         .timeline-date {
@@ -623,7 +623,7 @@
         .edu-date {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.82rem;
-            color: var(--text-muted);
+            color: var(--secondary);
             font-weight: 500;
             white-space: nowrap;
             padding: 0.3rem 0.8rem;
@@ -704,7 +704,7 @@
             <p class="hero-greeting">Hello! 👋</p>
             <h1 class="hero-name"><img src="images/profile.jpg?v=2" alt="Adam MOUNIR" class="hero-avatar"><span>I'm <span class="accent">Adam MOUNIR</span></span></h1>
             <p class="hero-role"><span class="seg"><i class="fas fa-flask"></i> AI Research &amp; Engineering</span><span class="sep">·</span><span class="seg"><i class="fas fa-graduation-cap"></i> AI @ <span class="accent">CentraleSupélec</span></span></p>
-            <p class="hero-subtitle">Deep learning for EEG decoding at Inria — TAU.</p>
+            <p class="hero-subtitle">Deep learning for EEG decoding at Inria (TAU Team) &amp; Yneuro.</p>
             <div class="hero-buttons">
                 <a href="CV%20Adam-EN.pdf" class="btn btn-primary" target="_blank"><i class="fas fa-download"></i> Download my resume</a>
             </div>
@@ -833,16 +833,16 @@
                     <p class="timeline-desc">Researching deep-learning architectures for end-to-end electroencephalography (EEG) decoding in the open-source library <a href="https://github.com/braindecode/braindecode" target="_blank">Braindecode</a>, and Growing Neural Networks during training in <a href="https://github.com/adammounir/EEGrow" target="_blank">EEGrow</a>. Designing transformer, graph-neural-network, convolutional and Riemannian models for neural decoding on open EEG datasets. Porting in-training architecture growth (<a href="https://github.com/growingnet/gromo" target="_blank">gromo</a>) to EEG decoding — conv-junction width auto-sized during training rather than tuned. Co-organizing the <a href="https://neural-interfaces26.github.io/" target="_blank">NeurIPS 2026 EEG/EMG decoding competition</a> (Meta, top academic labs) and building its benchmark infrastructure. Supervised by Sylvain Chevallier & Guillaume Charpiat (Inria TAU).</p>
                 </div>
                 <div class="timeline-item">
-                    <span class="timeline-date">Oct 2025 — Apr 2026</span>
-                    <h3 class="timeline-title">AI Engineer — Apprentice</h3>
-                    <p class="timeline-company">Société Générale — Paris</p>
-                    <p class="timeline-desc">Detecting semantic discrepancies between unstructured document disclosures and structured multi-provider data. Engineering a Zero-shot NER pipeline using Claude 3.5 Sonnet (RAG) and Directed Graphs for topological impact analysis. Automating cross-source data alignment and causal influence tracing within hierarchical scoring models.</p>
-                </div>
-                <div class="timeline-item">
                     <span class="timeline-date">Nov 2024 — Apr 2025</span>
                     <h3 class="timeline-title">AI Research Intern</h3>
                     <p class="timeline-company">Thales — Paris</p>
                     <p class="timeline-desc">Researching global-scale Root Cause Analysis by distilling multi-step reasoning from LLMs into specialized architectures. Designed a supervised alignment pipeline mapping expert causal trajectories from logs into internalized reasoning schemas. Distilled causal traces via GPT-4o to fine-tune a SFT pipeline using Llama 3.1 (QLoRA). Achieved 0.64 F1-score in RCA prediction.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Oct 2025 — Apr 2026</span>
+                    <h3 class="timeline-title">AI Engineer — Apprentice</h3>
+                    <p class="timeline-company">Société Générale — Paris</p>
+                    <p class="timeline-desc">Detecting semantic discrepancies between unstructured document disclosures and structured multi-provider data. Engineering a Zero-shot NER pipeline using Claude 3.5 Sonnet (RAG) and Directed Graphs for topological impact analysis. Automating cross-source data alignment and causal influence tracing within hierarchical scoring models.</p>
                 </div>
             </div>
         </section>
