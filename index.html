@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adam Mounir — Portfolio</title>
+    <title>Adam Mounir - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -374,7 +374,7 @@
         .oss-intro {
             color: var(--text-muted);
             font-size: 0.92rem;
-            margin: 1.25rem 0 1.5rem;
+            margin: 0.9rem 0 1rem;
             max-width: 820px;
         }
 
@@ -390,15 +390,15 @@
 
         .oss-models {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
             gap: 0.75rem;
         }
 
         .oss-model {
             display: block;
-            padding: 1rem 1.15rem;
+            padding: 0.6rem 0.85rem;
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 10px;
             text-decoration: none;
             color: inherit;
             transition: border-color 0.3s, background 0.3s;
@@ -439,7 +439,7 @@
         }
 
         .oss-maint {
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             font-size: 0.88rem;
             color: var(--text-muted);
         }
@@ -722,7 +722,7 @@
                 <div class="project-card pub-card">
                     <div class="pub-body">
                         <h3 class="project-title pub-title">Neuron-Level Architecture Growth: A Controlled Evaluation for EEG Time-Series Decoding</h3>
-                        <p class="pub-authors"><strong>A. Mounir</strong>, S. Douka, A. Caillet, B. Aristimunha, S. Chevallier — IEEE ICASSP 2027 (under review)</p>
+                        <p class="pub-authors"><strong>A. Mounir</strong>, S. Douka, A. Caillet, B. Aristimunha, S. Chevallier - IEEE ICASSP 2027 (under review)</p>
                         <p class="project-desc">Networks widen during training instead of using a fixed width, reaching +2.9 pp over ShallowFBCSPNet at 0.57× parameters; the refusal rate of growth predicts when it helps.</p>
                         <div class="project-tags">
                             <span class="project-tag">ICASSP 2027</span>
@@ -755,7 +755,7 @@
                 <div class="project-card pub-card">
                     <div class="pub-body">
                         <h3 class="project-title pub-title">EEG/EMG Foundation Challenge 2026: Neural Interfaces for Generalizable Decoding</h3>
-                        <p class="pub-authors">B. Aristimunha, A. Caillet, …, <strong>A. Mounir</strong>, …, S. Chevallier, A. Delorme — NeurIPS 2026 Brain &amp; Body Workshop (under review)</p>
+                        <p class="pub-authors">B. Aristimunha, A. Caillet, …, <strong>A. Mounir</strong>, …, S. Chevallier, A. Delorme - NeurIPS 2026 Brain &amp; Body Workshop (under review)</p>
                         <p class="project-desc">Large-scale competition benchmarking models for cross-subject EEG and EMG decoding, co-organized with Meta and leading academic labs; built the benchmark infrastructure.</p>
                         <div class="project-tags">
                             <span class="project-tag">NeurIPS 2026</span>
@@ -776,7 +776,7 @@
 
         <section id="opensource" class="fade-in">
             <h2 class="section-title">Open Source</h2>
-            <div class="project-card oss-card">
+            <div class="project-card oss-card" style="padding: 1.5rem;">
                 <div class="oss-head">
                     <div>
                         <h3 class="oss-name"><i class="fas fa-brain"></i> <a href="https://github.com/braindecode/braindecode" target="_blank">Braindecode</a></h3>
@@ -792,30 +792,25 @@
 
                 <p class="oss-subtitle">Models</p>
                 <div class="oss-models">
-                    <a class="oss-model" href="https://github.com/braindecode/braindecode/pull/1298" target="_blank">
+                    <a class="oss-model" href="https://github.com/braindecode/braindecode/pull/1298" target="_blank" title="Region-level sEEG speech decoder with VQ-VAE and MAE pre-training. Pretrained weights re-hosted on Hugging Face; replicated the paper's 61-word results.">
                         <div class="oss-model-top"><span class="oss-model-name">Du-IN</span><span class="oss-pr">#1298 ↗</span></div>
                         <div class="oss-venue">NeurIPS 2024 · sEEG speech decoding</div>
-                        <p>Region-level sEEG speech decoder with VQ-VAE and MAE pre-training. Pretrained weights re-hosted on Hugging Face; replicated the paper's 61-word results.</p>
                     </a>
-                    <a class="oss-model" href="https://github.com/braindecode/braindecode/pull/1105" target="_blank">
+                    <a class="oss-model" href="https://github.com/braindecode/braindecode/pull/1105" target="_blank" title="Population-level aggregator over per-electrode embeddings and their anatomical positions, built to stack on BrainBERT.">
                         <div class="oss-model-top"><span class="oss-model-name">PopulationTransformer</span><span class="oss-pr">#1105 ↗</span></div>
                         <div class="oss-venue">ICLR 2025 · iEEG foundation model</div>
-                        <p>Population-level aggregator over per-electrode embeddings and their anatomical positions, built to stack on BrainBERT.</p>
                     </a>
-                    <a class="oss-model" href="https://github.com/braindecode/braindecode/pull/1104" target="_blank">
+                    <a class="oss-model" href="https://github.com/braindecode/braindecode/pull/1104" target="_blank" title="Self-supervised Transformer over STFT spectrograms of intracranial recordings, compatible with the released weights.">
                         <div class="oss-model-top"><span class="oss-model-name">BrainBERT</span><span class="oss-pr">#1104 ↗</span></div>
                         <div class="oss-venue">ICLR 2023 · iEEG foundation model</div>
-                        <p>Self-supervised Transformer over STFT spectrograms of intracranial recordings, compatible with the released weights.</p>
                     </a>
-                    <a class="oss-model" href="https://github.com/braindecode/braindecode/pull/1100" target="_blank">
+                    <a class="oss-model" href="https://github.com/braindecode/braindecode/pull/1100" target="_blank" title="Temporal Transformer within each channel followed by a spatial Transformer across channels, on patch and band-power embeddings.">
                         <div class="oss-model-top"><span class="oss-model-name">Brant</span><span class="oss-pr">#1100 ↗</span></div>
                         <div class="oss-venue">NeurIPS 2023 · iEEG foundation model</div>
-                        <p>Temporal Transformer within each channel followed by a spatial Transformer across channels, on patch and band-power embeddings.</p>
                     </a>
-                    <a class="oss-model" href="https://github.com/braindecode/braindecode/pull/1042" target="_blank">
+                    <a class="oss-model" href="https://github.com/braindecode/braindecode/pull/1042" target="_blank" title="Spatio-temporal EEG Transformer from the winning team of the EEG 2025 decoding competition.">
                         <div class="oss-model-top"><span class="oss-model-name">STEEGFormer</span><span class="oss-pr">#1042 ↗</span></div>
                         <div class="oss-venue">EEG 2025 Challenge winner · EEG</div>
-                        <p>Spatio-temporal EEG Transformer from the winning team of the EEG 2025 decoding competition.</p>
                     </a>
                 </div>
 
@@ -827,21 +822,27 @@
             <h2 class="section-title">Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <span class="timeline-date">May 2026 — Nov 2026</span>
-                    <h3 class="timeline-title">AI Research Intern</h3>
-                    <p class="timeline-company">Inria — TAU (Université Paris-Saclay) — Paris</p>
-                    <p class="timeline-desc">Researching deep-learning architectures for end-to-end electroencephalography (EEG) decoding in the open-source library <a href="https://github.com/braindecode/braindecode" target="_blank">Braindecode</a>, and Growing Neural Networks during training in <a href="https://github.com/adammounir/EEGrow" target="_blank">EEGrow</a>. Designing transformer, graph-neural-network, convolutional and Riemannian models for neural decoding on open EEG datasets. Porting in-training architecture growth (<a href="https://github.com/growingnet/gromo" target="_blank">gromo</a>) to EEG decoding — conv-junction width auto-sized during training rather than tuned. Co-organizing the <a href="https://neural-interfaces26.github.io/" target="_blank">NeurIPS 2026 EEG/EMG decoding competition</a> (Meta, top academic labs) and building its benchmark infrastructure. Supervised by Sylvain Chevallier & Guillaume Charpiat (Inria TAU).</p>
+                    <span class="timeline-date">Oct 2026 - Present</span>
+                    <h3 class="timeline-title">Student Researcher</h3>
+                    <p class="timeline-company">MICS @ CentraleSupélec (Université Paris-Saclay) - Paris</p>
+                    <p class="timeline-desc">Mechanistic interpretability of multi-agent LLMs. Explaining the decisions of LLM debates at two levels: attributing the final vote to the agents and statements that caused it, including influence relayed through intermediate agents (A → B → C), and locating the attention heads that carry another agent's influence inside the model. Supervised by Céline Hudelot (MICS).</p>
                 </div>
                 <div class="timeline-item">
-                    <span class="timeline-date">Nov 2024 — Apr 2025</span>
+                    <span class="timeline-date">May 2026 - Nov 2026</span>
                     <h3 class="timeline-title">AI Research Intern</h3>
-                    <p class="timeline-company">Thales — Paris</p>
+                    <p class="timeline-company">Inria - TAU (Université Paris-Saclay) - Paris</p>
+                    <p class="timeline-desc">Researching deep-learning architectures for end-to-end electroencephalography (EEG) decoding in the open-source library <a href="https://github.com/braindecode/braindecode" target="_blank">Braindecode</a>, and Growing Neural Networks during training in <a href="https://github.com/adammounir/EEGrow" target="_blank">EEGrow</a>. Designing transformer, graph-neural-network, convolutional and Riemannian models for neural decoding on open EEG datasets. Porting in-training architecture growth (<a href="https://github.com/growingnet/gromo" target="_blank">gromo</a>) to EEG decoding - conv-junction width auto-sized during training rather than tuned. Co-organizing the <a href="https://neural-interfaces26.github.io/" target="_blank">NeurIPS 2026 EEG/EMG decoding competition</a> (Meta, top academic labs) and building its benchmark infrastructure. Supervised by Sylvain Chevallier & Guillaume Charpiat (Inria TAU).</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Nov 2024 - Apr 2025</span>
+                    <h3 class="timeline-title">AI Research Intern</h3>
+                    <p class="timeline-company">Thales - Paris</p>
                     <p class="timeline-desc">Researching global-scale Root Cause Analysis by distilling multi-step reasoning from LLMs into specialized architectures. Designed a supervised alignment pipeline mapping expert causal trajectories from logs into internalized reasoning schemas. Distilled causal traces via GPT-4o to fine-tune a SFT pipeline using Llama 3.1 (QLoRA). Achieved 0.64 F1-score in RCA prediction.</p>
                 </div>
                 <div class="timeline-item">
-                    <span class="timeline-date">Oct 2025 — Apr 2026</span>
-                    <h3 class="timeline-title">AI Engineer — Apprentice</h3>
-                    <p class="timeline-company">Société Générale — Paris</p>
+                    <span class="timeline-date">Oct 2025 - Apr 2026</span>
+                    <h3 class="timeline-title">AI Engineer - Apprentice</h3>
+                    <p class="timeline-company">Société Générale - Paris</p>
                     <p class="timeline-desc">Detecting semantic discrepancies between unstructured document disclosures and structured multi-provider data. Engineering a Zero-shot NER pipeline using Claude 3.5 Sonnet (RAG) and Directed Graphs for topological impact analysis. Automating cross-source data alignment and causal influence tracing within hierarchical scoring models.</p>
                 </div>
             </div>
@@ -853,30 +854,23 @@
                 <div class="edu-card">
                     <div>
                         <div class="edu-degree">MSc. in Artificial Intelligence</div>
-                        <div class="edu-school">CentraleSupélec — Université Paris-Saclay · Optimization for ML · Decision Modelling · Deep Learning</div>
+                        <div class="edu-school">CentraleSupélec - Université Paris-Saclay · Optimization for ML · Decision Modelling · Deep Learning</div>
                     </div>
-                    <span class="edu-date">2026 – 2027</span>
+                    <span class="edu-date">2026 - 2027</span>
                 </div>
                 <div class="edu-card">
                     <div>
-                        <div class="edu-degree">S2 Electives — MVA (Mathématiques, Vision, Apprentissage)</div>
-                        <div class="edu-school">ENS Paris-Saclay · Graph ML · Advanced Deep Learning · Stochastic Optimization · RL · NLP</div>
+                        <div class="edu-degree">MEng. - Diplôme d'Ingénieur in Data & Artificial Intelligence</div>
+                        <div class="edu-school">EFREI Paris Panthéon-Assas - Distinction: 17/20</div>
                     </div>
-                    <span class="edu-date">2026 – 2027</span>
+                    <span class="edu-date">2021 - 2026</span>
                 </div>
                 <div class="edu-card">
                     <div>
-                        <div class="edu-degree">MEng. — Diplôme d'Ingénieur in Data & Artificial Intelligence</div>
-                        <div class="edu-school">EFREI Paris Panthéon-Assas — Distinction: 17/20</div>
+                        <div class="edu-degree">Exchange - MEng. in Computer Science</div>
+                        <div class="edu-school">University of California, Irvine - GPA: 4.0 / 4.0</div>
                     </div>
-                    <span class="edu-date">2021 – 2026</span>
-                </div>
-                <div class="edu-card">
-                    <div>
-                        <div class="edu-degree">Exchange — MEng. in Computer Science</div>
-                        <div class="edu-school">University of California, Irvine — GPA: 4.0 / 4.0</div>
-                    </div>
-                    <span class="edu-date">2023 – 2024</span>
+                    <span class="edu-date">2023 - 2024</span>
                 </div>
             </div>
         </section>
