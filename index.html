@@ -390,7 +390,7 @@
 
         .oss-models {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 0.75rem;
         }
 
@@ -413,7 +413,8 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            gap: 0.75rem;
+            flex-wrap: wrap;
+            column-gap: 0.5rem;
         }
 
         .oss-model-name { font-weight: 700; font-size: 1rem; }
